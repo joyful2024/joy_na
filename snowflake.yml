@@ -1,0 +1,18 @@
+# This is a project definition file, a required component if you intend to use Snowflake CLI in a project directory such as this template.
+
+definition_version: 1
+native_app:
+  name: hello_joy
+  source_stage: stage_content.hello_joy_stage
+  artifacts:
+    - python/hello_python.py
+    - streamlit/hello_joy.py
+    - src: app/*
+      dest: ./
+  package:
+    name: hello_joy_package
+    scripts:
+      - scripts/shared_content.sql
+  application:
+    name: hello_joy_app
+    debug: false
